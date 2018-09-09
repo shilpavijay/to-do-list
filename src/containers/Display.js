@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 
 class Display extends Component {
@@ -39,4 +39,12 @@ class Display extends Component {
     }
 }
 
-export default Display;
+const mapStateToProps = state => ({
+    items: state.items
+})
+
+const mapDispatchToProps = state => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Display);
