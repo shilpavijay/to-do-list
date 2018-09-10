@@ -11,7 +11,7 @@ export const unchecked = {
     type: uncheck
 }
 
-export const display = {
+export const disp = {
     type: display
 }
 

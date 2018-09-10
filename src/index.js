@@ -1,9 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux'
+import reducers from './store'
+import { createStore } from 'redux'
+import 'bulma/css/bulma.css'
 
+const store = createStore(reducers)
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const Root = ({ store }) => (
+    <Provider store={store}>
+        <App />
+    </Provider>
+
+)
+
+render(
+    <Root store={store} />,
+    document.getElementById('root')
+)
