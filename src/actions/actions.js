@@ -1,10 +1,20 @@
 const check = "CHECKED"
-const addItem = "ADD_ITEM"
+const uncheck = "UNCHECKED"
+const display = "DISPLAY"
+const addTask = "ADD_TASK"
 
 export const checked = {
     type: check
 }
 
+export const unchecked = {
+    type: uncheck
+}
+
+export const display = {
+    type: display
+}
+
 export const addToList = {
-    type: addItem
+    type: addTask
 }
