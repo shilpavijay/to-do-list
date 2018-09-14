@@ -6,8 +6,6 @@ class Display extends Component {
     render() {
         return (
         <div align="center">
-            <br />
-            <br />
             <table className="table is-striped is-hoverable has-text-primary">
                 <thead>
                 <tr>
