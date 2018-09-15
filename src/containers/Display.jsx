@@ -5,39 +5,28 @@ import { addToList } from '../actions/actions'
 
 class Display extends Component {
     render() {
-        // for (var k in this.state) {
-        return (
+        return ( 
         <div align="center">
-            <table className="table is-striped is-hoverable has-text-primary">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox"></input></td>
-                        <td>Buy Groceries</td>
-                    </tr>
-                </tbody>    
-            </table>
-            <br />
-                <input id="item" type="text" ></input>
-                <br />
-                <br />
-                <button class="button is-primary is-rounded" onClick={this.props.add}>ADD</button>
+            <input id="item" type="text"></input>
+            <br/>
+            <br/>
+            <button className="button is-primary is-rounded" onClick={(e) => this.props.add(e.target.parentElement.firstElementChild.value)}>ADD</button>
+            <br/>
+            <br/>
+            {
+                this.props.repo.map(row => <p align="left" key={row.id}><input type="checkbox" value={row.status}/>&nbsp;{row.text}</p>)
+            }
         </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    addtask: state.addtask
+    repo: state.repo
 })
 
 const mapDispatchToProps = dispatch => ({
-    add: () => dispatch(addToList),
+    add: (item) => dispatch(addToList(item)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Display);

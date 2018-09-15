@@ -15,6 +15,7 @@ export const disp = {
     type: display
 }
 
-export const addToList = {
-    type: addTask
-}
+export const addToList = (item) => ({
+    type: addTask,
+    item
+})
